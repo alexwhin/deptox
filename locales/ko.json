@@ -1,0 +1,138 @@
+{
+  "app": {
+    "name": "deptox",
+    "description": "의존성 디렉토리를 찾아 제거하여 디스크 공간 확보",
+    "version": "버전 {{version}}",
+    "viewOnGitHub": "GitHub"
+  },
+  "scan": {
+    "button": "스캔",
+    "scanning": "스캔 중",
+    "scanFor": "스캔 대상",
+    "folderTypes": "감지할 폴더 유형"
+  },
+  "delete": {
+    "button": "삭제 ({{count}})",
+    "deleting": "삭제 중",
+    "confirm": "{{count}}개의 {{type}}을(를) 삭제하시겠습니까?",
+    "confirmMessage": "{{size}}의 데이터를 {{action}}합니다.",
+    "directory": "디렉토리",
+    "directories": "디렉토리",
+    "moveToTrash": "휴지통으로 이동",
+    "permanentDelete": "영구 삭제"
+  },
+  "categories": {
+    "node": "Node (모듈)",
+    "python": "Python (venv)",
+    "php": "PHP (composer)",
+    "ruby": "Ruby (bundler)",
+    "ios": "iOS (pods)",
+    "elixir": "Elixir (deps)",
+    "dart": "Dart (dart_tool)",
+    "go": "Go (pkg/mod)"
+  },
+  "settings": {
+    "title": "설정",
+    "deletion": "삭제",
+    "deletionDesc": "폴더 제거 방법",
+    "rootDirectory": "루트 디렉토리",
+    "rootDirectoryDesc": "스캔 시작 디렉토리",
+    "threshold": "임계값",
+    "thresholdDesc": "종속성이 초과할 때 경고",
+    "minSize": "최소 크기",
+    "minSizeDesc": "이보다 작은 디렉토리 숨기기",
+    "excludePaths": "제외 경로",
+    "excludePathsDesc": "건너뛸 쉼표로 구분된 경로",
+    "sortBy": "정렬 기준",
+    "sortByDesc": "결과 순서",
+    "rescanInterval": "재스캔 간격",
+    "rescanIntervalDesc": "자동 재스캔 빈도",
+    "confirmBeforeDelete": "삭제 전 확인",
+    "confirmBeforeDeleteDesc": "확인 대화 상자 표시",
+    "permanentDelete": "휴지통 건너뛰기 (영구)",
+    "permanentDeleteDesc": "휴지통 건너뛰고 영구 삭제",
+    "notifyOnThresholdExceeded": "초과 시 알림 전송",
+    "notifyOnThresholdExceededDesc": "임계값 초과 시 알림",
+    "language": "언어",
+    "languageDesc": "애플리케이션 언어",
+    "fontSize": "글꼴 크기",
+    "fontSizeDesc": "텍스트 및 UI 요소 크기",
+    "startup": "시작",
+    "startupDesc": "시스템 시작 동작",
+    "launchAtLogin": "로그인 시 실행",
+    "close": "닫기"
+  },
+  "intervals": {
+    "never": "안 함",
+    "daily": "매일",
+    "weekly": "매주",
+    "monthly": "매월"
+  },
+  "menu": {
+    "copyPath": "경로 복사",
+    "exploreFiles": "파일 탐색",
+    "rescan": "재스캔",
+    "rescanNow": "지금 스캔",
+    "openInFinder": "Finder에서 열기",
+    "delete": "삭제",
+    "deleteDirectory": "디렉토리 삭제",
+    "largestFiles": "가장 큰 파일",
+    "noFilesFound": "파일을 찾을 수 없음",
+    "failedToLoadFiles": "파일 로드 실패"
+  },
+  "dialogs": {
+    "cancel": "취소",
+    "confirm": "확인",
+    "delete": "삭제",
+    "deleteDirectoryTitle": "디렉토리 삭제",
+    "deleteDirectoriesTitle": "{{count}}개 디렉토리 삭제",
+    "deleteToTrashMessage": "휴지통으로 이동되며 복원할 수 있습니다. 설정에서 변경할 수 있습니다.",
+    "deletePermanentMessage": "영구적으로 삭제되며 취소할 수 없습니다. 설정에서 변경할 수 있습니다.",
+    "directoryWarningsTitle": "디렉토리 경고",
+    "symlinkTitle": "심볼릭 링크만",
+    "symlinkMessage": "다른 곳에 저장된 패키지를 가리키는 심볼릭 링크만 포함되어 있습니다. 실제로는 디스크 공간이 사용되지 않지만 삭제 후 종속성을 다시 설치해야 합니다.",
+    "icloudTitle": "iCloud 디렉토리",
+    "icloudMessage": "이 디렉토리는 iCloud에 저장되어 있습니다. 강제로 삭제됩니다(휴지통으로 이동하지 않음). 더 안전한 삭제를 위해 Finder에서 마우스 오른쪽 버튼을 클릭하고 '지금 다운로드'를 선택한 다음 다시 스캔하세요."
+  },
+  "status": {
+    "scanning": "스캔 중",
+    "loading": "로딩 중...",
+    "preparingScan": "스캔 준비 중",
+    "scannedDirectories": "{{count}}개 디렉토리 스캔됨",
+    "folder": "폴더",
+    "folders": "폴더"
+  },
+  "time": {
+    "justNow": "방금 전",
+    "unknown": "알 수 없음",
+    "lastModified": "마지막 수정 {{date}}"
+  },
+  "update": {
+    "checking": "확인 중...",
+    "available": "v{{version}}으로 업데이트",
+    "downloadAndInstall": "다운로드 및 설치",
+    "downloading": "다운로드 중...",
+    "readyToInstall": "재시작 중...",
+    "checkForUpdates": "업데이트",
+    "upToDateTitle": "업데이트 확인",
+    "upToDate": "최신 버전입니다 (v{{version}})"
+  },
+  "search": {
+    "placeholder": "검색",
+    "clear": "검색 지우기"
+  },
+  "license": {
+    "title": "라이선스",
+    "hint": "지속적인 개발 지원",
+    "support": "지원",
+    "supportDevelopment": "deptox 개발 지원",
+    "supportDescription": "이 앱이 유용하다면 라이선스 구매를 고려해 주세요.",
+    "getLicense": "라이선스 받기",
+    "enterKey": "라이선스 키 입력",
+    "activate": "활성화",
+    "activating": "활성화 중...",
+    "activationError": "확인할 수 없음",
+    "thanksForSupporting": "deptox를 지원해 주셔서 감사합니다!",
+    "remove": "제거"
+  }
+}

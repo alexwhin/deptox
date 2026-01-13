@@ -1,0 +1,72 @@
+# Dependencies
+node_modules/
+vendor/
+Pods/
+.venv/
+target/
+
+# Build output
+dist/
+dist-ssr/
+src-tauri/target/
+src-tauri/WixTools/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Environment and local config
+*.local
+.env
+.env.*
+
+# Editor directories and files
+.vscode/*
+.cmai
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS files
+.DS_Store
+Thumbs.db
+*~
+
+# Claude Code local settings
+.claude/
+CLAUDE.md
+
+# Test coverage
+coverage/
+coverage-rust/
+*.lcov
+*.profraw
+
+# Sensitive keys and credentials
+KEYS.md
+*.key
+*.p12
+*.mobileprovision
+
+# Tauri build artifacts
+*.app
+*.dmg
+*.deb
+*.AppImage
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.swp
+*.swo

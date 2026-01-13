@@ -1,0 +1,138 @@
+{
+  "app": {
+    "name": "deptox",
+    "description": "Освободите место на диске, находя и удаляя каталоги зависимостей",
+    "version": "Версия {{version}}",
+    "viewOnGitHub": "GitHub"
+  },
+  "scan": {
+    "button": "Сканировать",
+    "scanning": "Сканирование",
+    "scanFor": "Сканировать",
+    "folderTypes": "Типы папок для обнаружения"
+  },
+  "delete": {
+    "button": "Удалить ({{count}})",
+    "deleting": "Удаление",
+    "confirm": "Удалить {{count}} {{type}}?",
+    "confirmMessage": "Это {{action}} {{size}} данных.",
+    "directory": "каталог",
+    "directories": "каталога",
+    "moveToTrash": "переместит в Корзину",
+    "permanentDelete": "удалит навсегда"
+  },
+  "categories": {
+    "node": "Node (модули)",
+    "python": "Python (venv)",
+    "php": "PHP (composer)",
+    "ruby": "Ruby (bundler)",
+    "ios": "iOS (pods)",
+    "elixir": "Elixir (deps)",
+    "dart": "Dart (dart_tool)",
+    "go": "Go (pkg/mod)"
+  },
+  "settings": {
+    "title": "Настройки",
+    "deletion": "Удаление",
+    "deletionDesc": "Как удаляются папки",
+    "rootDirectory": "Корневой Каталог",
+    "rootDirectoryDesc": "Начальный каталог для сканирования",
+    "threshold": "Порог",
+    "thresholdDesc": "Предупреждать при превышении зависимостей",
+    "minSize": "Минимальный Размер",
+    "minSizeDesc": "Скрыть каталоги меньше",
+    "excludePaths": "Исключить Пути",
+    "excludePathsDesc": "Пути через запятую для пропуска",
+    "sortBy": "Сортировать По",
+    "sortByDesc": "Порядок результатов",
+    "rescanInterval": "Интервал Пересканирования",
+    "rescanIntervalDesc": "Частота автоматического пересканирования",
+    "confirmBeforeDelete": "Спрашивать перед удалением",
+    "confirmBeforeDeleteDesc": "Показывать диалог подтверждения",
+    "permanentDelete": "Пропустить корзину (навсегда)",
+    "permanentDeleteDesc": "Пропустить корзину, удалить навсегда",
+    "notifyOnThresholdExceeded": "Отправить уведомление при превышении",
+    "notifyOnThresholdExceededDesc": "Уведомлять при превышении порога",
+    "language": "Язык",
+    "languageDesc": "Язык приложения",
+    "fontSize": "Размер шрифта",
+    "fontSizeDesc": "Размер текста и элементов интерфейса",
+    "startup": "Запуск",
+    "startupDesc": "Поведение при запуске системы",
+    "launchAtLogin": "Запускать при входе",
+    "close": "Закрыть"
+  },
+  "intervals": {
+    "never": "Никогда",
+    "daily": "Ежедневно",
+    "weekly": "Еженедельно",
+    "monthly": "Ежемесячно"
+  },
+  "menu": {
+    "copyPath": "Копировать Путь",
+    "exploreFiles": "Просмотр Файлов",
+    "rescan": "Пересканировать",
+    "rescanNow": "Сканировать Сейчас",
+    "openInFinder": "Открыть в Finder",
+    "delete": "Удалить",
+    "deleteDirectory": "Удалить Каталог",
+    "largestFiles": "Самые Большие Файлы",
+    "noFilesFound": "Файлы не найдены",
+    "failedToLoadFiles": "Не удалось загрузить файлы"
+  },
+  "dialogs": {
+    "cancel": "Отмена",
+    "confirm": "Подтвердить",
+    "delete": "Удалить",
+    "deleteDirectoryTitle": "Удалить Каталог",
+    "deleteDirectoriesTitle": "Удалить {{count}} Каталогов",
+    "deleteToTrashMessage": "Будет перемещено в Корзину и может быть восстановлено. Это можно изменить в Настройках.",
+    "deletePermanentMessage": "Будет удалено навсегда и не может быть отменено. Это можно изменить в Настройках.",
+    "directoryWarningsTitle": "Предупреждение о Каталоге",
+    "symlinkTitle": "Только Символические Ссылки",
+    "symlinkMessage": "Содержит только символические ссылки на пакеты, хранящиеся в другом месте. Фактически место на диске не используется, но удаление потребует последующей переустановки зависимостей.",
+    "icloudTitle": "Каталог iCloud",
+    "icloudMessage": "Этот каталог хранится в iCloud. Он будет удален принудительно (без перемещения в Корзину). Для более безопасного удаления нажмите правой кнопкой мыши в Finder, выберите 'Загрузить сейчас', затем пересканируйте."
+  },
+  "status": {
+    "scanning": "сканирование",
+    "loading": "Загрузка...",
+    "preparingScan": "Подготовка сканирования",
+    "scannedDirectories": "Отсканировано {{count}} каталогов",
+    "folder": "папка",
+    "folders": "папки"
+  },
+  "time": {
+    "justNow": "только что",
+    "unknown": "неизвестно",
+    "lastModified": "Последнее изменение {{date}}"
+  },
+  "update": {
+    "checking": "Проверка...",
+    "available": "Обновить до v{{version}}",
+    "downloadAndInstall": "Скачать и установить",
+    "downloading": "Загрузка...",
+    "readyToInstall": "Перезапуск...",
+    "checkForUpdates": "Обновления",
+    "upToDateTitle": "Проверить обновления",
+    "upToDate": "У вас последняя версия (v{{version}})"
+  },
+  "search": {
+    "placeholder": "Поиск",
+    "clear": "Очистить поиск"
+  },
+  "license": {
+    "title": "Лицензия",
+    "hint": "Поддержите постоянную разработку",
+    "support": "Поддержите",
+    "supportDevelopment": "Поддержите разработку deptox",
+    "supportDescription": "Если вы находите это приложение полезным, рассмотрите возможность покупки лицензии.",
+    "getLicense": "Получить лицензию",
+    "enterKey": "Введите лицензионный ключ",
+    "activate": "Активировать",
+    "activating": "Активация...",
+    "activationError": "Не удалось проверить",
+    "thanksForSupporting": "Спасибо за поддержку deptox!",
+    "remove": "Удалить"
+  }
+}

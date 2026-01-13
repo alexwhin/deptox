@@ -1,0 +1,138 @@
+{
+  "app": {
+    "name": "deptox",
+    "description": "依存関係ディレクトリを見つけて削除することでディスク容量を回復",
+    "version": "バージョン {{version}}",
+    "viewOnGitHub": "GitHub"
+  },
+  "scan": {
+    "button": "スキャン",
+    "scanning": "スキャン中",
+    "scanFor": "スキャン対象",
+    "folderTypes": "検出するフォルダタイプ"
+  },
+  "delete": {
+    "button": "削除 ({{count}})",
+    "deleting": "削除中",
+    "confirm": "{{count}}個の{{type}}を削除しますか？",
+    "confirmMessage": "これにより{{size}}のデータを{{action}}します。",
+    "directory": "ディレクトリ",
+    "directories": "ディレクトリ",
+    "moveToTrash": "ゴミ箱に移動",
+    "permanentDelete": "完全に削除"
+  },
+  "categories": {
+    "node": "Node (モジュール)",
+    "python": "Python (venv)",
+    "php": "PHP (composer)",
+    "ruby": "Ruby (bundler)",
+    "ios": "iOS (pods)",
+    "elixir": "Elixir (deps)",
+    "dart": "Dart (dart_tool)",
+    "go": "Go (pkg/mod)"
+  },
+  "settings": {
+    "title": "設定",
+    "deletion": "削除方法",
+    "deletionDesc": "フォルダの削除方法",
+    "rootDirectory": "ルートディレクトリ",
+    "rootDirectoryDesc": "スキャンの開始ディレクトリ",
+    "threshold": "しきい値",
+    "thresholdDesc": "依存関係が超えたときに警告",
+    "minSize": "最小サイズ",
+    "minSizeDesc": "これより小さいディレクトリを非表示",
+    "excludePaths": "除外パス",
+    "excludePathsDesc": "スキップするカンマ区切りのパス",
+    "sortBy": "並べ替え",
+    "sortByDesc": "結果の順序",
+    "rescanInterval": "再スキャン間隔",
+    "rescanIntervalDesc": "自動再スキャンの頻度",
+    "confirmBeforeDelete": "削除前に確認する",
+    "confirmBeforeDeleteDesc": "確認ダイアログを表示",
+    "permanentDelete": "ゴミ箱をスキップ（完全削除）",
+    "permanentDeleteDesc": "ゴミ箱をスキップして完全削除",
+    "notifyOnThresholdExceeded": "超過時に通知を送信",
+    "notifyOnThresholdExceededDesc": "しきい値を超えたときに通知",
+    "language": "言語",
+    "languageDesc": "アプリケーション言語",
+    "fontSize": "フォントサイズ",
+    "fontSizeDesc": "テキストとUI要素のサイズ",
+    "startup": "起動",
+    "startupDesc": "システム起動時の動作",
+    "launchAtLogin": "ログイン時に起動",
+    "close": "閉じる"
+  },
+  "intervals": {
+    "never": "なし",
+    "daily": "毎日",
+    "weekly": "毎週",
+    "monthly": "毎月"
+  },
+  "menu": {
+    "copyPath": "パスをコピー",
+    "exploreFiles": "ファイルを表示",
+    "rescan": "再スキャン",
+    "rescanNow": "今すぐスキャン",
+    "openInFinder": "Finderで開く",
+    "delete": "削除",
+    "deleteDirectory": "ディレクトリを削除",
+    "largestFiles": "最大のファイル",
+    "noFilesFound": "ファイルが見つかりません",
+    "failedToLoadFiles": "ファイルの読み込みに失敗しました"
+  },
+  "dialogs": {
+    "cancel": "キャンセル",
+    "confirm": "確認",
+    "delete": "削除",
+    "deleteDirectoryTitle": "ディレクトリを削除",
+    "deleteDirectoriesTitle": "{{count}}個のディレクトリを削除",
+    "deleteToTrashMessage": "ゴミ箱に移動され、復元できます。これは設定で変更できます。",
+    "deletePermanentMessage": "完全に削除され、元に戻せません。これは設定で変更できます。",
+    "directoryWarningsTitle": "ディレクトリ警告",
+    "symlinkTitle": "シンボリックリンクのみ",
+    "symlinkMessage": "他の場所に保存されているパッケージへのシンボリックリンクのみが含まれています。実際にはディスク容量は使用されていませんが、削除後は依存関係の再インストールが必要になります。",
+    "icloudTitle": "iCloudディレクトリ",
+    "icloudMessage": "このディレクトリはiCloudに保存されています。強制的に削除されます（ゴミ箱に移動しません）。より安全な削除のために、Finderで右クリックし、「今すぐダウンロード」を選択してから、再スキャンしてください。"
+  },
+  "status": {
+    "scanning": "スキャン中",
+    "loading": "読み込み中...",
+    "preparingScan": "スキャンを準備中",
+    "scannedDirectories": "{{count}} 個のディレクトリをスキャンしました",
+    "folder": "フォルダ",
+    "folders": "フォルダ"
+  },
+  "time": {
+    "justNow": "たった今",
+    "unknown": "不明",
+    "lastModified": "最終更新 {{date}}"
+  },
+  "update": {
+    "checking": "確認中...",
+    "available": "v{{version}}に更新",
+    "downloadAndInstall": "ダウンロードしてインストール",
+    "downloading": "ダウンロード中...",
+    "readyToInstall": "再起動中...",
+    "checkForUpdates": "アップデート",
+    "upToDateTitle": "アップデートを確認",
+    "upToDate": "最新バージョンです (v{{version}})"
+  },
+  "search": {
+    "placeholder": "検索",
+    "clear": "検索をクリア"
+  },
+  "license": {
+    "title": "ライセンス",
+    "hint": "継続的な開発をサポート",
+    "support": "サポート",
+    "supportDevelopment": "deptoxの開発をサポート",
+    "supportDescription": "このアプリが役立つと感じたら、ライセンスの購入をご検討ください。",
+    "getLicense": "ライセンスを取得",
+    "enterKey": "ライセンスキーを入力",
+    "activate": "有効化",
+    "activating": "有効化中...",
+    "activationError": "確認できませんでした",
+    "thanksForSupporting": "deptoxをサポートしていただきありがとうございます！",
+    "remove": "削除"
+  }
+}

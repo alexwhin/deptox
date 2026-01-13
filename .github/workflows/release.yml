@@ -1,0 +1,249 @@
+name: Release
+
+on:
+  workflow_call:
+    inputs:
+      tag:
+        description: "The version tag to release"
+        required: true
+        type: string
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Tag to release (e.g., v0.1.5)"
+        required: true
+        type: string
+
+concurrency:
+  group: release-${{ inputs.tag }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Build (${{ matrix.arch_name }})
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - platform: macos-latest
+            target: aarch64-apple-darwin
+            arch_name: apple-silicon
+          - platform: macos-latest
+            target: x86_64-apple-darwin
+            arch_name: intel
+
+    runs-on: ${{ matrix.platform }}
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.tag }}
+
+      - name: Set Up pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Set Up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "pnpm"
+
+      - name: Set Up Rust
+        uses: actions-rust-lang/setup-rust-toolchain@v1
+        with:
+          toolchain: stable
+          target: ${{ matrix.target }}
+
+      - name: Cache Cargo
+        uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: src-tauri
+          shared-key: macos-release-${{ matrix.target }}
+
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build Tauri App
+        run: pnpm tauri build --target ${{ matrix.target }}
+        env:
+          TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
+          TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY_PASSWORD }}
+
+      - name: Prepare Artifacts
+        run: |
+          VERSION="${{ inputs.tag }}"
+          VERSION="${VERSION#v}"
+          DMG_DIR="src-tauri/target/${{ matrix.target }}/release/bundle/dmg"
+          MACOS_DIR="src-tauri/target/${{ matrix.target }}/release/bundle/macos"
+
+          mkdir -p artifacts-upload
+
+          ls -la "$DMG_DIR" || echo "DMG directory not found"
+          ls -la "$MACOS_DIR" || echo "macOS directory not found"
+
+          for dmg in "$DMG_DIR"/*.dmg; do
+            [ -f "$dmg" ] && cp "$dmg" "artifacts-upload/deptox_${VERSION}_${{ matrix.arch_name }}.dmg"
+          done
+
+          for tarball in "$MACOS_DIR"/*.app.tar.gz; do
+            [ -f "$tarball" ] && cp "$tarball" "artifacts-upload/deptox_${VERSION}_${{ matrix.arch_name }}.app.tar.gz"
+          done
+
+          for sig in "$MACOS_DIR"/*.app.tar.gz.sig; do
+            [ -f "$sig" ] && cp "$sig" "artifacts-upload/deptox_${VERSION}_${{ matrix.arch_name }}.app.tar.gz.sig"
+          done
+
+          ls -la artifacts-upload/
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: artifacts-${{ matrix.arch_name }}
+          path: artifacts-upload/*
+
+  release:
+    name: Create Release
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.tag }}
+          fetch-depth: 0
+
+      - name: Download Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+          merge-multiple: true
+
+      - name: List Downloaded Artifacts
+        run: ls -la artifacts/
+
+      - name: Generate Latest JSON
+        run: |
+          VERSION="${{ inputs.tag }}"
+          VERSION="${VERSION#v}"
+          RELEASE_DATE=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+          RELEASE_URL="https://github.com/alexwhin/deptox/releases/download/${{ inputs.tag }}"
+
+          ls -la artifacts/
+
+          if [ ! -f "artifacts/deptox_${VERSION}_apple-silicon.app.tar.gz.sig" ]; then
+            echo "Error: Missing artifacts/deptox_${VERSION}_apple-silicon.app.tar.gz.sig"
+            exit 1
+          fi
+
+          if [ ! -f "artifacts/deptox_${VERSION}_intel.app.tar.gz.sig" ]; then
+            echo "Error: Missing artifacts/deptox_${VERSION}_intel.app.tar.gz.sig"
+            exit 1
+          fi
+
+          AARCH64_SIG=$(cat "artifacts/deptox_${VERSION}_apple-silicon.app.tar.gz.sig")
+          X64_SIG=$(cat "artifacts/deptox_${VERSION}_intel.app.tar.gz.sig")
+
+          cat > latest.json << EOF
+          {
+            "version": "${VERSION}",
+            "notes": "See release notes at ${RELEASE_URL}",
+            "pub_date": "${RELEASE_DATE}",
+            "platforms": {
+              "darwin-aarch64": {
+                "signature": "${AARCH64_SIG}",
+                "url": "${RELEASE_URL}/deptox_${VERSION}_apple-silicon.app.tar.gz"
+              },
+              "darwin-x86_64": {
+                "signature": "${X64_SIG}",
+                "url": "${RELEASE_URL}/deptox_${VERSION}_intel.app.tar.gz"
+              }
+            }
+          }
+          EOF
+
+          cat latest.json
+
+      - name: Generate Release Notes
+        run: |
+          VERSION="${{ inputs.tag }}"
+          VERSION="${VERSION#v}"
+          RELEASE_URL="https://github.com/alexwhin/deptox/releases/download/${{ inputs.tag }}"
+
+          PREVIOUS_TAG=$(git tag --sort=-v:refname | grep -E '^v[0-9]+\.[0-9]+\.[0-9]+$' | grep -v "^${{ inputs.tag }}$" | head -n 1)
+
+          echo "Current tag: ${{ inputs.tag }}, Previous tag: $PREVIOUS_TAG"
+
+          if [ -z "$PREVIOUS_TAG" ]; then
+            COMMITS=$(git log --pretty=format:"%s" HEAD)
+          else
+            COMMITS=$(git log --pretty=format:"%s" ${PREVIOUS_TAG}..HEAD)
+          fi
+
+          CHANGELOG=""
+          while IFS= read -r commit; do
+            [ -z "$commit" ] && continue
+            echo "$commit" | grep -qE "^chore: release|^chore\(release\)|^chore: bump" && continue
+            echo "$commit" | grep -qE "^Merge " && continue
+
+            if echo "$commit" | grep -qE "^[a-z]+(\([^)]+\))?: "; then
+              MESSAGE=$(echo "$commit" | sed -E 's/^[a-z]+(\([^)]+\))?: //')
+            else
+              MESSAGE="$commit"
+            fi
+
+            FIRST_CHAR=$(echo "$MESSAGE" | cut -c1 | tr '[:lower:]' '[:upper:]')
+            REST=$(echo "$MESSAGE" | cut -c2-)
+            MESSAGE="${FIRST_CHAR}${REST}"
+
+            CHANGELOG="${CHANGELOG}- ${MESSAGE}"$'\n'
+          done <<< "$COMMITS"
+
+          CHANGELOG=$(echo "$CHANGELOG" | sed '/^$/d')
+
+          {
+            echo "## Download"
+            echo ""
+            echo "| Mac | Download |"
+            echo "|-----|----------|"
+            echo "| Apple Silicon | [deptox_${VERSION}_apple-silicon.dmg](${RELEASE_URL}/deptox_${VERSION}_apple-silicon.dmg) |"
+            echo "| Intel | [deptox_${VERSION}_intel.dmg](${RELEASE_URL}/deptox_${VERSION}_intel.dmg) |"
+            echo ""
+            echo "> **Important**: macOS may show \"deptox.app is damaged and can't be opened\" because the app is not notarised with Apple. After downloading, run this command in Terminal:"
+            echo ">"
+            echo "> \`\`\`bash"
+            echo "> xattr -cr /Applications/deptox.app"
+            echo "> \`\`\`"
+          } > release-notes.md
+
+          if [ -n "$CHANGELOG" ]; then
+            {
+              echo ""
+              echo "---"
+              echo ""
+              echo "## Release Notes"
+              echo ""
+              echo "$CHANGELOG"
+            } >> release-notes.md
+          fi
+
+          cat release-notes.md
+
+      - name: Upload Release Assets
+        uses: softprops/action-gh-release@v2
+        with:
+          body_path: release-notes.md
+          files: |
+            artifacts/*.dmg
+            artifacts/*.app.tar.gz
+            artifacts/*.app.tar.gz.sig
+            latest.json
+          tag_name: ${{ inputs.tag }}
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

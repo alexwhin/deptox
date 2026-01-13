@@ -1,0 +1,20 @@
+[coverage]
+# Exclude files that require Tauri runtime and can't be unit tested
+# These files contain Tauri commands that need AppHandle which can't be mocked
+exclude-files = [
+    "src/lib.rs",                    # Tauri bootstrap/setup code
+    "src/main.rs",                   # Entry point
+    "src/commands/scan.rs",          # start_scan, cancel_scan need AppHandle
+    "src/commands/delete.rs",        # delete_to_trash needs real filesystem/trash
+    "src/tray/mod.rs",               # set_tray_icon needs AppHandle
+]
+
+# Include all other source files
+run-types = ["Lib", "Tests"]
+
+# Coverage threshold - 90% on testable code
+fail-under = 90
+
+# Output formats
+out = ["Html", "Stdout"]
+output-dir = "../coverage-rust"

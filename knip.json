@@ -1,0 +1,14 @@
+{
+  "$schema": "https://unpkg.com/knip@5/schema.json",
+  "entry": ["src/main.tsx"],
+  "project": ["src/**/*.{ts,tsx}"],
+  "ignore": ["src-tauri/**", "dist/**"],
+  "ignoreDependencies": [
+    "autoprefixer",
+    "@tauri-apps/plugin-positioner",
+    "tailwindcss",
+    "@secretlint/secretlint-rule-preset-recommend"
+  ],
+  "ignoreBinaries": [],
+  "ignoreExportsUsedInFile": true
+}

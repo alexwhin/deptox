@@ -1,0 +1,191 @@
+name: Version Bump
+run-name: ${{ github.event.workflow_run.head_commit.message || 'Manual version bump' }}
+
+on:
+  workflow_run:
+    workflows: [Pipeline, Audit]
+    types:
+      - completed
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version bump type"
+        required: true
+        default: "patch"
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+
+concurrency:
+  group: version-bump
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  check-workflows:
+    name: Check All Workflows Passed
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_run'
+    outputs:
+      should_release: ${{ steps.check.outputs.should_release }}
+    steps:
+      - name: Check Pipeline and Audit Status
+        id: check
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const headSha = context.payload.workflow_run.head_sha;
+            const triggeringWorkflow = context.payload.workflow_run.name;
+            const triggeringConclusion = context.payload.workflow_run.conclusion;
+
+            console.log(`Triggered by: ${triggeringWorkflow}, conclusion: ${triggeringConclusion}, SHA: ${headSha}`);
+
+            if (triggeringConclusion !== 'success') {
+              console.log(`${triggeringWorkflow} did not succeed, skipping release`);
+              core.setOutput('should_release', 'false');
+              return;
+            }
+
+            const { data: runs } = await github.rest.actions.listWorkflowRunsForRepo({
+              owner,
+              repo,
+              head_sha: headSha,
+              per_page: 100
+            });
+
+            const pipelineRun = runs.workflow_runs.find(run =>
+              run.name === 'Pipeline' && run.head_sha === headSha
+            );
+            const auditRun = runs.workflow_runs.find(run =>
+              run.name === 'Audit' && run.head_sha === headSha
+            );
+
+            if (!pipelineRun) {
+              console.log('Pipeline workflow not found, skipping release');
+              core.setOutput('should_release', 'false');
+              return;
+            }
+            console.log(`Pipeline: ${pipelineRun.status}, ${pipelineRun.conclusion}`);
+            if (pipelineRun.status !== 'completed' || pipelineRun.conclusion !== 'success') {
+              console.log('Pipeline not successful, skipping release');
+              core.setOutput('should_release', 'false');
+              return;
+            }
+
+            if (!auditRun) {
+              console.log('Audit workflow not found, skipping release');
+              core.setOutput('should_release', 'false');
+              return;
+            }
+            console.log(`Audit: ${auditRun.status}, ${auditRun.conclusion}`);
+            if (auditRun.status !== 'completed' || auditRun.conclusion !== 'success') {
+              console.log('Audit not successful, skipping release');
+              core.setOutput('should_release', 'false');
+              return;
+            }
+
+            console.log('Both workflows succeeded, proceeding with release');
+            core.setOutput('should_release', 'true');
+
+  bump:
+    name: Bump Version
+    runs-on: ubuntu-latest
+    needs: [check-workflows]
+    if: |
+      always() &&
+      !failure() &&
+      !cancelled() &&
+      (
+        github.event_name == 'workflow_dispatch' ||
+        needs.check-workflows.outputs.should_release == 'true'
+      )
+    outputs:
+      tag: ${{ steps.get-tag.outputs.tag }}
+      released: ${{ steps.release.outputs.released }}
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: main
+          token: ${{ secrets.PAT_TOKEN }}
+
+      - name: Check if Release Commit
+        id: check
+        run: |
+          COMMIT_MSG=$(git log -1 --pretty=%B)
+          echo "Latest commit: $COMMIT_MSG"
+          if [[ "$COMMIT_MSG" == chore:\ release* ]]; then
+            echo "Skipping - this is a release commit"
+            echo "skip=true" >> $GITHUB_OUTPUT
+          else
+            echo "Proceeding with release"
+            echo "skip=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Set Up pnpm
+        if: steps.check.outputs.skip != 'true'
+        uses: pnpm/action-setup@v4
+
+      - name: Set Up Node.js
+        if: steps.check.outputs.skip != 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "pnpm"
+
+      - name: Install Dependencies
+        if: steps.check.outputs.skip != 'true'
+        run: pnpm install --frozen-lockfile
+
+      - name: Configure Git
+        if: steps.check.outputs.skip != 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Determine Version Bump
+        if: steps.check.outputs.skip != 'true'
+        id: version
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "bump=${{ github.event.inputs.version }}" >> $GITHUB_OUTPUT
+          else
+            echo "bump=patch" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Run Release
+        if: steps.check.outputs.skip != 'true'
+        id: release
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
+          HUSKY: 0
+        run: |
+          pnpm release --ci --increment ${{ steps.version.outputs.bump }}
+          echo "released=true" >> $GITHUB_OUTPUT
+
+      - name: Get Created Tag
+        if: steps.check.outputs.skip != 'true' && steps.release.outputs.released == 'true'
+        id: get-tag
+        run: |
+          TAG=$(git describe --tags --abbrev=0)
+          echo "tag=$TAG" >> $GITHUB_OUTPUT
+          echo "Created tag: $TAG"
+
+  trigger-release:
+    name: Trigger Release Build
+    needs: [bump]
+    if: needs.bump.outputs.released == 'true' && needs.bump.outputs.tag != ''
+    uses: ./.github/workflows/release.yml
+    with:
+      tag: ${{ needs.bump.outputs.tag }}
+    secrets: inherit

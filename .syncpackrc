@@ -1,0 +1,15 @@
+{
+  "sortFirst": [
+    "name",
+    "private",
+    "version",
+    "description",
+    "author",
+    "license",
+    "type",
+    "packageManager",
+    "scripts",
+    "dependencies",
+    "devDependencies"
+  ]
+}

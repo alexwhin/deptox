@@ -1,0 +1,138 @@
+{
+  "app": {
+    "name": "deptox",
+    "description": "Recupera spazio su disco trovando e rimuovendo le directory delle dipendenze",
+    "version": "Versione {{version}}",
+    "viewOnGitHub": "GitHub"
+  },
+  "scan": {
+    "button": "Scansiona",
+    "scanning": "Scansione in corso",
+    "scanFor": "Scansiona",
+    "folderTypes": "Tipi di cartelle da rilevare"
+  },
+  "delete": {
+    "button": "Elimina ({{count}})",
+    "deleting": "Eliminazione",
+    "confirm": "Eliminare {{count}} {{type}}?",
+    "confirmMessage": "Questo {{action}} {{size}} di dati.",
+    "directory": "directory",
+    "directories": "directory",
+    "moveToTrash": "sposterà nel Cestino",
+    "permanentDelete": "eliminerà permanentemente"
+  },
+  "categories": {
+    "node": "Node (moduli)",
+    "python": "Python (venv)",
+    "php": "PHP (composer)",
+    "ruby": "Ruby (bundler)",
+    "ios": "iOS (pods)",
+    "elixir": "Elixir (deps)",
+    "dart": "Dart (dart_tool)",
+    "go": "Go (pkg/mod)"
+  },
+  "settings": {
+    "title": "Impostazioni",
+    "deletion": "Eliminazione",
+    "deletionDesc": "Come vengono rimosse le cartelle",
+    "rootDirectory": "Directory Radice",
+    "rootDirectoryDesc": "Directory di partenza per le scansioni",
+    "threshold": "Soglia",
+    "thresholdDesc": "Avvisa quando le dipendenze superano",
+    "minSize": "Dimensione Minima",
+    "minSizeDesc": "Nascondi directory più piccole di",
+    "excludePaths": "Escludi Percorsi",
+    "excludePathsDesc": "Percorsi separati da virgole da saltare",
+    "sortBy": "Ordina Per",
+    "sortByDesc": "Ordine dei risultati",
+    "rescanInterval": "Intervallo di Riscansione",
+    "rescanIntervalDesc": "Frequenza di riscansione automatica",
+    "confirmBeforeDelete": "Chiedi prima di eliminare",
+    "confirmBeforeDeleteDesc": "Mostra dialogo di conferma",
+    "permanentDelete": "Salta cestino (permanente)",
+    "permanentDeleteDesc": "Salta cestino, elimina permanentemente",
+    "notifyOnThresholdExceeded": "Invia notifica quando superato",
+    "notifyOnThresholdExceededDesc": "Notifica quando la soglia viene superata",
+    "language": "Lingua",
+    "languageDesc": "Lingua dell'applicazione",
+    "fontSize": "Dimensione Carattere",
+    "fontSizeDesc": "Dimensione del testo e degli elementi UI",
+    "startup": "Avvio",
+    "startupDesc": "Comportamento all'avvio del sistema",
+    "launchAtLogin": "Avvia all'accesso",
+    "close": "Chiudi"
+  },
+  "intervals": {
+    "never": "Mai",
+    "daily": "Giornaliero",
+    "weekly": "Settimanale",
+    "monthly": "Mensile"
+  },
+  "menu": {
+    "copyPath": "Copia Percorso",
+    "exploreFiles": "Esplora File",
+    "rescan": "Riscansiona",
+    "rescanNow": "Scansiona Ora",
+    "openInFinder": "Apri nel Finder",
+    "delete": "Elimina",
+    "deleteDirectory": "Elimina Directory",
+    "largestFiles": "File Più Grandi",
+    "noFilesFound": "Nessun file trovato",
+    "failedToLoadFiles": "Impossibile caricare i file"
+  },
+  "dialogs": {
+    "cancel": "Annulla",
+    "confirm": "Conferma",
+    "delete": "Elimina",
+    "deleteDirectoryTitle": "Elimina Directory",
+    "deleteDirectoriesTitle": "Elimina {{count}} Directory",
+    "deleteToTrashMessage": "Verrà spostato nel Cestino e può essere ripristinato. Questo può essere modificato nelle Impostazioni.",
+    "deletePermanentMessage": "Verrà eliminato permanentemente e non può essere annullato. Questo può essere modificato nelle Impostazioni.",
+    "directoryWarningsTitle": "Avviso Directory",
+    "symlinkTitle": "Solo Link Simbolici",
+    "symlinkMessage": "Contiene solo link simbolici a pacchetti archiviati altrove. Nessuno spazio disco viene effettivamente utilizzato, ma l'eliminazione richiederà di reinstallare le dipendenze successivamente.",
+    "icloudTitle": "Directory iCloud",
+    "icloudMessage": "Questa directory è archiviata in iCloud. Verrà eliminata forzatamente (senza spostarla nel Cestino). Per un'eliminazione più sicura, fare clic destro in Finder, selezionare 'Scarica ora', poi rieseguire la scansione."
+  },
+  "status": {
+    "scanning": "scansione in corso",
+    "loading": "Caricamento...",
+    "preparingScan": "Preparazione scansione",
+    "scannedDirectories": "{{count}} directory scansionate",
+    "folder": "cartella",
+    "folders": "cartelle"
+  },
+  "time": {
+    "justNow": "proprio ora",
+    "unknown": "sconosciuto",
+    "lastModified": "Ultima modifica {{date}}"
+  },
+  "update": {
+    "checking": "Verifica...",
+    "available": "Aggiorna a v{{version}}",
+    "downloadAndInstall": "Scarica e Installa",
+    "downloading": "Download...",
+    "readyToInstall": "Riavvio...",
+    "checkForUpdates": "Aggiornamenti",
+    "upToDateTitle": "Controlla aggiornamenti",
+    "upToDate": "Hai l'ultima versione (v{{version}})"
+  },
+  "search": {
+    "placeholder": "Cerca",
+    "clear": "Cancella ricerca"
+  },
+  "license": {
+    "title": "Licenza",
+    "hint": "Supporta lo sviluppo continuo",
+    "support": "Supporta",
+    "supportDevelopment": "Supporta lo sviluppo di deptox",
+    "supportDescription": "Se trovi utile questa app, considera l'acquisto di una licenza.",
+    "getLicense": "Ottieni licenza",
+    "enterKey": "Inserisci chiave di licenza",
+    "activate": "Attiva",
+    "activating": "Attivazione...",
+    "activationError": "Impossibile verificare",
+    "thanksForSupporting": "Grazie per supportare deptox!",
+    "remove": "Rimuovi"
+  }
+}

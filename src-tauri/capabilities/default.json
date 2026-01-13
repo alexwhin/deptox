@@ -1,0 +1,14 @@
+{
+  "identifier": "default",
+  "description": "Capability for the main window",
+  "windows": ["main"],
+  "permissions": [
+    "core:default",
+    "opener:default",
+    "dialog:default",
+    "clipboard-manager:allow-write-text",
+    "notification:default",
+    "updater:default",
+    "process:allow-restart"
+  ]
+}

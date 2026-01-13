@@ -1,0 +1,138 @@
+{
+  "app": {
+    "name": "deptox",
+    "description": "通过查找和删除依赖目录来回收磁盘空间",
+    "version": "版本 {{version}}",
+    "viewOnGitHub": "GitHub"
+  },
+  "scan": {
+    "button": "扫描",
+    "scanning": "扫描中",
+    "scanFor": "扫描目标",
+    "folderTypes": "要检测的文件夹类型"
+  },
+  "delete": {
+    "button": "删除 ({{count}})",
+    "deleting": "删除中",
+    "confirm": "删除 {{count}} 个{{type}}？",
+    "confirmMessage": "这将{{action}} {{size}} 的数据。",
+    "directory": "目录",
+    "directories": "目录",
+    "moveToTrash": "移至废纸篓",
+    "permanentDelete": "永久删除"
+  },
+  "categories": {
+    "node": "Node (模块)",
+    "python": "Python (虚拟环境)",
+    "php": "PHP (composer)",
+    "ruby": "Ruby (bundler)",
+    "ios": "iOS (pods)",
+    "elixir": "Elixir (deps)",
+    "dart": "Dart (dart_tool)",
+    "go": "Go (pkg/mod)"
+  },
+  "settings": {
+    "title": "设置",
+    "deletion": "删除方式",
+    "deletionDesc": "删除文件夹的方式",
+    "rootDirectory": "根目录",
+    "rootDirectoryDesc": "扫描的起始目录",
+    "threshold": "阈值",
+    "thresholdDesc": "当依赖项超过时发出警报",
+    "minSize": "最小大小",
+    "minSizeDesc": "隐藏小于此大小的目录",
+    "excludePaths": "排除路径",
+    "excludePathsDesc": "以逗号分隔的要跳过的路径",
+    "sortBy": "排序方式",
+    "sortByDesc": "结果的排序顺序",
+    "rescanInterval": "重新扫描间隔",
+    "rescanIntervalDesc": "自动重新扫描频率",
+    "confirmBeforeDelete": "删除前询问",
+    "confirmBeforeDeleteDesc": "显示确认对话框",
+    "permanentDelete": "跳过废纸篓（永久）",
+    "permanentDeleteDesc": "跳过废纸篓，永久删除",
+    "notifyOnThresholdExceeded": "超过阈值时发送通知",
+    "notifyOnThresholdExceededDesc": "超过阈值时通知",
+    "language": "语言",
+    "languageDesc": "应用程序语言",
+    "fontSize": "字体大小",
+    "fontSizeDesc": "文本和UI元素大小",
+    "startup": "启动",
+    "startupDesc": "系统启动行为",
+    "launchAtLogin": "登录时启动",
+    "close": "关闭"
+  },
+  "intervals": {
+    "never": "从不",
+    "daily": "每天",
+    "weekly": "每周",
+    "monthly": "每月"
+  },
+  "menu": {
+    "copyPath": "复制路径",
+    "exploreFiles": "浏览文件",
+    "rescan": "重新扫描",
+    "rescanNow": "立即扫描",
+    "openInFinder": "在访达中打开",
+    "delete": "删除",
+    "deleteDirectory": "删除目录",
+    "largestFiles": "最大文件",
+    "noFilesFound": "未找到文件",
+    "failedToLoadFiles": "加载文件失败"
+  },
+  "dialogs": {
+    "cancel": "取消",
+    "confirm": "确认",
+    "delete": "删除",
+    "deleteDirectoryTitle": "删除目录",
+    "deleteDirectoriesTitle": "删除 {{count}} 个目录",
+    "deleteToTrashMessage": "将被移至废纸篓，可以恢复。这可以在设置中更改。",
+    "deletePermanentMessage": "将被永久删除，无法撤销。这可以在设置中更改。",
+    "directoryWarningsTitle": "目录警告",
+    "symlinkTitle": "仅符号链接",
+    "symlinkMessage": "仅包含指向其他位置存储的包的符号链接。实际上未使用磁盘空间，但删除后需要重新安装依赖项。",
+    "icloudTitle": "iCloud目录",
+    "icloudMessage": "此目录存储在iCloud中。它将被强制删除(不会移至废纸篓)。为了更安全的删除，请在访达中右键单击，选择'立即下载'，然后重新扫描。"
+  },
+  "status": {
+    "scanning": "扫描中",
+    "loading": "加载中...",
+    "preparingScan": "准备扫描",
+    "scannedDirectories": "已扫描 {{count}} 个目录",
+    "folder": "文件夹",
+    "folders": "文件夹"
+  },
+  "time": {
+    "justNow": "刚刚",
+    "unknown": "未知",
+    "lastModified": "最后修改于 {{date}}"
+  },
+  "update": {
+    "checking": "检查中...",
+    "available": "更新到 v{{version}}",
+    "downloadAndInstall": "下载并安装",
+    "downloading": "下载中...",
+    "readyToInstall": "重启中...",
+    "checkForUpdates": "更新",
+    "upToDateTitle": "检查更新",
+    "upToDate": "您已是最新版本 (v{{version}})"
+  },
+  "search": {
+    "placeholder": "搜索",
+    "clear": "清除搜索"
+  },
+  "license": {
+    "title": "许可证",
+    "hint": "支持持续开发",
+    "support": "支持",
+    "supportDevelopment": "支持 deptox 开发",
+    "supportDescription": "如果您觉得这个应用有用，请考虑购买许可证。",
+    "getLicense": "获取许可证",
+    "enterKey": "输入许可证密钥",
+    "activate": "激活",
+    "activating": "激活中...",
+    "activationError": "无法验证",
+    "thanksForSupporting": "感谢您支持 deptox！",
+    "remove": "移除"
+  }
+}

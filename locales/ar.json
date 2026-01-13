@@ -1,0 +1,138 @@
+{
+  "app": {
+    "name": "deptox",
+    "description": "استعادة مساحة القرص عن طريق البحث عن أدلة التبعيات وإزالتها",
+    "version": "الإصدار {{version}}",
+    "viewOnGitHub": "GitHub"
+  },
+  "scan": {
+    "button": "فحص",
+    "scanning": "جارٍ الفحص",
+    "scanFor": "فحص",
+    "folderTypes": "أنواع المجلدات للكشف"
+  },
+  "delete": {
+    "button": "حذف ({{count}})",
+    "deleting": "جارٍ الحذف",
+    "confirm": "حذف {{count}} {{type}}؟",
+    "confirmMessage": "سيؤدي هذا إلى {{action}} {{size}} من البيانات.",
+    "directory": "دليل",
+    "directories": "أدلة",
+    "moveToTrash": "نقل إلى سلة المهملات",
+    "permanentDelete": "حذف نهائي"
+  },
+  "categories": {
+    "node": "Node (وحدات)",
+    "python": "Python (venv)",
+    "php": "PHP (composer)",
+    "ruby": "Ruby (bundler)",
+    "ios": "iOS (pods)",
+    "elixir": "Elixir (deps)",
+    "dart": "Dart (dart_tool)",
+    "go": "Go (pkg/mod)"
+  },
+  "settings": {
+    "title": "الإعدادات",
+    "deletion": "الحذف",
+    "deletionDesc": "كيفية إزالة المجلدات",
+    "rootDirectory": "الدليل الجذر",
+    "rootDirectoryDesc": "دليل البداية للفحص",
+    "threshold": "العتبة",
+    "thresholdDesc": "تنبيه عند تجاوز التبعيات",
+    "minSize": "الحد الأدنى للحجم",
+    "minSizeDesc": "إخفاء الأدلة الأصغر من",
+    "excludePaths": "استبعاد المسارات",
+    "excludePathsDesc": "مسارات مفصولة بفواصل للتخطي",
+    "sortBy": "الترتيب حسب",
+    "sortByDesc": "ترتيب النتائج",
+    "rescanInterval": "فترة إعادة الفحص",
+    "rescanIntervalDesc": "تكرار إعادة الفحص التلقائي",
+    "confirmBeforeDelete": "السؤال قبل الحذف",
+    "confirmBeforeDeleteDesc": "عرض مربع حوار التأكيد",
+    "permanentDelete": "تخطي سلة المهملات (نهائي)",
+    "permanentDeleteDesc": "تخطي سلة المهملات، حذف نهائي",
+    "notifyOnThresholdExceeded": "إرسال إشعار عند التجاوز",
+    "notifyOnThresholdExceededDesc": "إخطار عند تجاوز العتبة",
+    "language": "اللغة",
+    "languageDesc": "لغة التطبيق",
+    "fontSize": "حجم الخط",
+    "fontSizeDesc": "حجم النص وعناصر الواجهة",
+    "startup": "بدء التشغيل",
+    "startupDesc": "سلوك بدء تشغيل النظام",
+    "launchAtLogin": "التشغيل عند تسجيل الدخول",
+    "close": "إغلاق"
+  },
+  "intervals": {
+    "never": "أبداً",
+    "daily": "يومياً",
+    "weekly": "أسبوعياً",
+    "monthly": "شهرياً"
+  },
+  "menu": {
+    "copyPath": "نسخ المسار",
+    "exploreFiles": "استكشاف الملفات",
+    "rescan": "إعادة الفحص",
+    "rescanNow": "فحص الآن",
+    "openInFinder": "فتح في Finder",
+    "delete": "حذف",
+    "deleteDirectory": "حذف الدليل",
+    "largestFiles": "أكبر الملفات",
+    "noFilesFound": "لم يتم العثور على ملفات",
+    "failedToLoadFiles": "فشل تحميل الملفات"
+  },
+  "dialogs": {
+    "cancel": "إلغاء",
+    "confirm": "تأكيد",
+    "delete": "حذف",
+    "deleteDirectoryTitle": "حذف الدليل",
+    "deleteDirectoriesTitle": "حذف {{count}} أدلة",
+    "deleteToTrashMessage": "سيتم نقله إلى سلة المهملات ويمكن استعادته. يمكن تغيير هذا في الإعدادات.",
+    "deletePermanentMessage": "سيتم حذفه نهائياً ولا يمكن التراجع عنه. يمكن تغيير هذا في الإعدادات.",
+    "directoryWarningsTitle": "تحذير الدليل",
+    "symlinkTitle": "روابط رمزية فقط",
+    "symlinkMessage": "يحتوي على روابط رمزية فقط تشير إلى حزم مخزنة في مكان آخر. لا يتم استخدام مساحة القرص فعلياً، لكن الحذف سيتطلب إعادة تثبيت التبعيات لاحقاً.",
+    "icloudTitle": "دليل iCloud",
+    "icloudMessage": "هذا الدليل مخزن في iCloud. سيتم حذفه بالقوة (بدون نقله إلى سلة المهملات). للحذف الآمن، انقر بزر الماوس الأيمن في Finder وحدد 'تنزيل الآن'، ثم أعد الفحص."
+  },
+  "status": {
+    "scanning": "جارٍ الفحص",
+    "loading": "جارٍ التحميل...",
+    "preparingScan": "جارٍ تحضير الفحص",
+    "scannedDirectories": "تم فحص {{count}} من الأدلة",
+    "folder": "مجلد",
+    "folders": "مجلدات"
+  },
+  "time": {
+    "justNow": "الآن",
+    "unknown": "غير معروف",
+    "lastModified": "آخر تعديل {{date}}"
+  },
+  "update": {
+    "checking": "جارٍ التحقق...",
+    "available": "تحديث إلى v{{version}}",
+    "downloadAndInstall": "تنزيل وتثبيت",
+    "downloading": "جارٍ التنزيل...",
+    "readyToInstall": "جارٍ إعادة التشغيل...",
+    "checkForUpdates": "التحديثات",
+    "upToDateTitle": "التحقق من التحديثات",
+    "upToDate": "لديك أحدث إصدار (v{{version}})"
+  },
+  "search": {
+    "placeholder": "بحث",
+    "clear": "مسح البحث"
+  },
+  "license": {
+    "title": "الترخيص",
+    "hint": "ادعم التطوير المستمر",
+    "support": "ادعم",
+    "supportDevelopment": "ادعم تطوير deptox",
+    "supportDescription": "إذا وجدت هذا التطبيق مفيداً، فكر في شراء ترخيص.",
+    "getLicense": "احصل على ترخيص",
+    "enterKey": "أدخل مفتاح الترخيص",
+    "activate": "تفعيل",
+    "activating": "جارٍ التفعيل...",
+    "activationError": "تعذر التحقق",
+    "thanksForSupporting": "شكراً لدعمك deptox!",
+    "remove": "إزالة"
+  }
+}

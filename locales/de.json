@@ -1,0 +1,138 @@
+{
+  "app": {
+    "name": "deptox",
+    "description": "Speicherplatz freigeben durch Finden und Entfernen von Abhängigkeitsverzeichnissen",
+    "version": "Version {{version}}",
+    "viewOnGitHub": "GitHub"
+  },
+  "scan": {
+    "button": "Scannen",
+    "scanning": "Scannen läuft",
+    "scanFor": "Scannen nach",
+    "folderTypes": "Zu erkennende Ordnertypen"
+  },
+  "delete": {
+    "button": "Löschen ({{count}})",
+    "deleting": "Löschen",
+    "confirm": "{{count}} {{type}} löschen?",
+    "confirmMessage": "Dies wird {{size}} an Daten {{action}}.",
+    "directory": "Verzeichnis",
+    "directories": "Verzeichnisse",
+    "moveToTrash": "in den Papierkorb verschieben",
+    "permanentDelete": "dauerhaft löschen"
+  },
+  "categories": {
+    "node": "Node (Module)",
+    "python": "Python (venv)",
+    "php": "PHP (composer)",
+    "ruby": "Ruby (bundler)",
+    "ios": "iOS (pods)",
+    "elixir": "Elixir (deps)",
+    "dart": "Dart (dart_tool)",
+    "go": "Go (pkg/mod)"
+  },
+  "settings": {
+    "title": "Einstellungen",
+    "deletion": "Löschung",
+    "deletionDesc": "Wie Ordner entfernt werden",
+    "rootDirectory": "Stammverzeichnis",
+    "rootDirectoryDesc": "Startverzeichnis für Scans",
+    "threshold": "Schwellenwert",
+    "thresholdDesc": "Warnen, wenn Abhängigkeiten überschreiten",
+    "minSize": "Mindestgröße",
+    "minSizeDesc": "Verzeichnisse kleiner als verstecken",
+    "excludePaths": "Pfade ausschließen",
+    "excludePathsDesc": "Durch Kommas getrennte Pfade zum Überspringen",
+    "sortBy": "Sortieren Nach",
+    "sortByDesc": "Reihenfolge der Ergebnisse",
+    "rescanInterval": "Scan-Intervall",
+    "rescanIntervalDesc": "Häufigkeit des automatischen Scannens",
+    "confirmBeforeDelete": "Vor Löschen fragen",
+    "confirmBeforeDeleteDesc": "Bestätigungsdialog anzeigen",
+    "permanentDelete": "Papierkorb überspringen (dauerhaft)",
+    "permanentDeleteDesc": "Papierkorb überspringen, dauerhaft löschen",
+    "notifyOnThresholdExceeded": "Benachrichtigung bei Überschreitung",
+    "notifyOnThresholdExceededDesc": "Benachrichtigen bei Überschreitung",
+    "language": "Sprache",
+    "languageDesc": "Anwendungssprache",
+    "fontSize": "Schriftgröße",
+    "fontSizeDesc": "Text- und UI-Elementgröße",
+    "startup": "Systemstart",
+    "startupDesc": "Systemstartverhalten",
+    "launchAtLogin": "Bei Anmeldung starten",
+    "close": "Schließen"
+  },
+  "intervals": {
+    "never": "Nie",
+    "daily": "Täglich",
+    "weekly": "Wöchentlich",
+    "monthly": "Monatlich"
+  },
+  "menu": {
+    "copyPath": "Pfad kopieren",
+    "exploreFiles": "Dateien durchsuchen",
+    "rescan": "Erneut scannen",
+    "rescanNow": "Jetzt scannen",
+    "openInFinder": "Im Finder öffnen",
+    "delete": "Löschen",
+    "deleteDirectory": "Verzeichnis löschen",
+    "largestFiles": "Größte Dateien",
+    "noFilesFound": "Keine Dateien gefunden",
+    "failedToLoadFiles": "Dateien konnten nicht geladen werden"
+  },
+  "dialogs": {
+    "cancel": "Abbrechen",
+    "confirm": "Bestätigen",
+    "delete": "Löschen",
+    "deleteDirectoryTitle": "Verzeichnis löschen",
+    "deleteDirectoriesTitle": "{{count}} Verzeichnisse löschen",
+    "deleteToTrashMessage": "Wird in den Papierkorb verschoben und kann wiederhergestellt werden. Dies kann in den Einstellungen geändert werden.",
+    "deletePermanentMessage": "Wird dauerhaft gelöscht und kann nicht rückgängig gemacht werden. Dies kann in den Einstellungen geändert werden.",
+    "directoryWarningsTitle": "Verzeichniswarnung",
+    "symlinkTitle": "Nur Symlinks",
+    "symlinkMessage": "Enthält nur symbolische Links zu anderswo gespeicherten Paketen. Kein Speicherplatz wird tatsächlich verwendet, aber Löschen erfordert eine anschließende Neuinstallation der Abhängigkeiten.",
+    "icloudTitle": "iCloud-Verzeichnis",
+    "icloudMessage": "Dieses Verzeichnis ist in iCloud gespeichert. Es wird zwangsweise gelöscht (ohne Papierkorb). Für sichereres Löschen, Rechtsklick im Finder, 'Jetzt laden' wählen, dann erneut scannen."
+  },
+  "status": {
+    "scanning": "scannen",
+    "loading": "Laden...",
+    "preparingScan": "Scan wird vorbereitet",
+    "scannedDirectories": "{{count}} Verzeichnisse gescannt",
+    "folder": "Ordner",
+    "folders": "Ordner"
+  },
+  "time": {
+    "justNow": "gerade eben",
+    "unknown": "unbekannt",
+    "lastModified": "Zuletzt geändert {{date}}"
+  },
+  "update": {
+    "checking": "Prüfe...",
+    "available": "Update auf v{{version}}",
+    "downloadAndInstall": "Herunterladen & Installieren",
+    "downloading": "Lädt...",
+    "readyToInstall": "Neustart...",
+    "checkForUpdates": "Updates",
+    "upToDateTitle": "Updates prüfen",
+    "upToDate": "Sie haben die neueste Version (v{{version}})"
+  },
+  "search": {
+    "placeholder": "Suchen",
+    "clear": "Suche löschen"
+  },
+  "license": {
+    "title": "Lizenz",
+    "hint": "Unterstützen Sie die laufende Entwicklung",
+    "support": "Unterstütze",
+    "supportDevelopment": "Unterstützen Sie die deptox-Entwicklung",
+    "supportDescription": "Wenn Sie diese App nützlich finden, erwägen Sie den Kauf einer Lizenz.",
+    "getLicense": "Lizenz erwerben",
+    "enterKey": "Lizenzschlüssel eingeben",
+    "activate": "Aktivieren",
+    "activating": "Aktiviere...",
+    "activationError": "Verifizierung nicht möglich",
+    "thanksForSupporting": "Danke für Ihre Unterstützung von deptox!",
+    "remove": "Entfernen"
+  }
+}

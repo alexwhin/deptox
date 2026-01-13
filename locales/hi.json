@@ -1,0 +1,138 @@
+{
+  "app": {
+    "name": "deptox",
+    "description": "निर्भरता निर्देशिकाओं को खोजकर और हटाकर डिस्क स्थान पुनः प्राप्त करें",
+    "version": "संस्करण {{version}}",
+    "viewOnGitHub": "GitHub"
+  },
+  "scan": {
+    "button": "स्कैन",
+    "scanning": "स्कैन हो रहा है",
+    "scanFor": "स्कैन करें",
+    "folderTypes": "पता लगाने के लिए फ़ोल्डर प्रकार"
+  },
+  "delete": {
+    "button": "हटाएं ({{count}})",
+    "deleting": "हटाया जा रहा है",
+    "confirm": "{{count}} {{type}} हटाएं?",
+    "confirmMessage": "यह {{size}} डेटा को {{action}}।",
+    "directory": "निर्देशिका",
+    "directories": "निर्देशिकाएं",
+    "moveToTrash": "ट्रैश में ले जाएगा",
+    "permanentDelete": "स्थायी रूप से हटा देगा"
+  },
+  "categories": {
+    "node": "Node (मॉड्यूल)",
+    "python": "Python (venv)",
+    "php": "PHP (composer)",
+    "ruby": "Ruby (bundler)",
+    "ios": "iOS (pods)",
+    "elixir": "Elixir (deps)",
+    "dart": "Dart (dart_tool)",
+    "go": "Go (pkg/mod)"
+  },
+  "settings": {
+    "title": "सेटिंग्स",
+    "deletion": "हटाना",
+    "deletionDesc": "फ़ोल्डर कैसे हटाए जाते हैं",
+    "rootDirectory": "रूट निर्देशिका",
+    "rootDirectoryDesc": "स्कैन के लिए प्रारंभिक निर्देशिका",
+    "threshold": "सीमा",
+    "thresholdDesc": "जब निर्भरताएं पार हों तो चेतावनी दें",
+    "minSize": "न्यूनतम आकार",
+    "minSizeDesc": "इससे छोटी निर्देशिकाओं को छिपाएं",
+    "excludePaths": "पथ बाहर करें",
+    "excludePathsDesc": "छोड़ने के लिए अल्पविराम से अलग किए गए पथ",
+    "sortBy": "क्रमबद्ध करें",
+    "sortByDesc": "परिणामों का क्रम",
+    "rescanInterval": "पुनः स्कैन अंतराल",
+    "rescanIntervalDesc": "स्वचालित पुनः स्कैन आवृत्ति",
+    "confirmBeforeDelete": "हटाने से पहले पूछें",
+    "confirmBeforeDeleteDesc": "पुष्टिकरण संवाद दिखाएं",
+    "permanentDelete": "ट्रैश छोड़ें (स्थायी)",
+    "permanentDeleteDesc": "ट्रैश को छोड़ें, स्थायी रूप से हटाएं",
+    "notifyOnThresholdExceeded": "सीमा पार होने पर सूचना भेजें",
+    "notifyOnThresholdExceededDesc": "सीमा पार होने पर सूचित करें",
+    "language": "भाषा",
+    "languageDesc": "एप्लिकेशन भाषा",
+    "fontSize": "फ़ॉन्ट आकार",
+    "fontSizeDesc": "टेक्स्ट और UI तत्वों का आकार",
+    "startup": "स्टार्टअप",
+    "startupDesc": "सिस्टम स्टार्टअप व्यवहार",
+    "launchAtLogin": "लॉगिन पर शुरू करें",
+    "close": "बंद करें"
+  },
+  "intervals": {
+    "never": "कभी नहीं",
+    "daily": "दैनिक",
+    "weekly": "साप्ताहिक",
+    "monthly": "मासिक"
+  },
+  "menu": {
+    "copyPath": "पथ कॉपी करें",
+    "exploreFiles": "फ़ाइलें एक्सप्लोर करें",
+    "rescan": "पुनः स्कैन करें",
+    "rescanNow": "अभी स्कैन करें",
+    "openInFinder": "Finder में खोलें",
+    "delete": "हटाएं",
+    "deleteDirectory": "निर्देशिका हटाएं",
+    "largestFiles": "सबसे बड़ी फ़ाइलें",
+    "noFilesFound": "कोई फ़ाइल नहीं मिली",
+    "failedToLoadFiles": "फ़ाइलें लोड करने में विफल"
+  },
+  "dialogs": {
+    "cancel": "रद्द करें",
+    "confirm": "पुष्टि करें",
+    "delete": "हटाएं",
+    "deleteDirectoryTitle": "निर्देशिका हटाएं",
+    "deleteDirectoriesTitle": "{{count}} निर्देशिकाएं हटाएं",
+    "deleteToTrashMessage": "ट्रैश में ले जाया जाएगा और पुनर्स्थापित किया जा सकता है। इसे सेटिंग्स में बदला जा सकता है।",
+    "deletePermanentMessage": "स्थायी रूप से हटाया जाएगा और पूर्ववत नहीं किया जा सकता। इसे सेटिंग्स में बदला जा सकता है।",
+    "directoryWarningsTitle": "निर्देशिका चेतावनी",
+    "symlinkTitle": "केवल प्रतीकात्मक लिंक",
+    "symlinkMessage": "केवल प्रतीकात्मक लिंक हैं जो अन्यत्र संग्रहीत पैकेज की ओर इशारा करते हैं। वास्तव में कोई डिस्क स्थान उपयोग नहीं किया जाता है, लेकिन हटाने के बाद निर्भरताओं को पुनः स्थापित करना आवश्यक होगा।",
+    "icloudTitle": "iCloud निर्देशिका",
+    "icloudMessage": "यह निर्देशिका iCloud में संग्रहीत है। इसे बलपूर्वक हटा दिया जाएगा (ट्रैश में नहीं ले जाया जाएगा)। सुरक्षित हटाने के लिए, Finder में राइट-क्लिक करें, 'अभी डाउनलोड करें' चुनें, फिर पुनः स्कैन करें।"
+  },
+  "status": {
+    "scanning": "स्कैन हो रहा है",
+    "loading": "लोड हो रहा है...",
+    "preparingScan": "स्कैन तैयार हो रहा है",
+    "scannedDirectories": "{{count}} निर्देशिकाएं स्कैन की गईं",
+    "folder": "फ़ोल्डर",
+    "folders": "फ़ोल्डर"
+  },
+  "time": {
+    "justNow": "अभी",
+    "unknown": "अज्ञात",
+    "lastModified": "अंतिम संशोधन {{date}}"
+  },
+  "update": {
+    "checking": "जांच हो रही है...",
+    "available": "v{{version}} में अपडेट करें",
+    "downloadAndInstall": "डाउनलोड और इंस्टॉल करें",
+    "downloading": "डाउनलोड हो रहा है...",
+    "readyToInstall": "पुनः आरंभ हो रहा है...",
+    "checkForUpdates": "अपडेट",
+    "upToDateTitle": "अपडेट की जांच करें",
+    "upToDate": "आपके पास नवीनतम संस्करण है (v{{version}})"
+  },
+  "search": {
+    "placeholder": "खोजें",
+    "clear": "खोज साफ़ करें"
+  },
+  "license": {
+    "title": "लाइसेंस",
+    "hint": "निरंतर विकास का समर्थन करें",
+    "support": "समर्थन",
+    "supportDevelopment": "deptox विकास का समर्थन करें",
+    "supportDescription": "यदि आपको यह ऐप उपयोगी लगता है, तो लाइसेंस खरीदने पर विचार करें।",
+    "getLicense": "लाइसेंस प्राप्त करें",
+    "enterKey": "लाइसेंस कुंजी दर्ज करें",
+    "activate": "सक्रिय करें",
+    "activating": "सक्रिय हो रहा है...",
+    "activationError": "सत्यापित नहीं हो सका",
+    "thanksForSupporting": "deptox का समर्थन करने के लिए धन्यवाद!",
+    "remove": "हटाएं"
+  }
+}

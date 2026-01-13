@@ -1,0 +1,138 @@
+{
+  "app": {
+    "name": "deptox",
+    "description": "Récupérez de l'espace disque en trouvant et supprimant les répertoires de dépendances",
+    "version": "Version {{version}}",
+    "viewOnGitHub": "GitHub"
+  },
+  "scan": {
+    "button": "Analyser",
+    "scanning": "Analyse en cours",
+    "scanFor": "Analyser",
+    "folderTypes": "Types de dossiers à détecter"
+  },
+  "delete": {
+    "button": "Supprimer ({{count}})",
+    "deleting": "Suppression",
+    "confirm": "Supprimer {{count}} {{type}} ?",
+    "confirmMessage": "Cela va {{action}} {{size}} de données.",
+    "directory": "répertoire",
+    "directories": "répertoires",
+    "moveToTrash": "déplacer vers la Corbeille",
+    "permanentDelete": "supprimer définitivement"
+  },
+  "categories": {
+    "node": "Node (modules)",
+    "python": "Python (venv)",
+    "php": "PHP (composer)",
+    "ruby": "Ruby (bundler)",
+    "ios": "iOS (pods)",
+    "elixir": "Elixir (deps)",
+    "dart": "Dart (dart_tool)",
+    "go": "Go (pkg/mod)"
+  },
+  "settings": {
+    "title": "Paramètres",
+    "deletion": "Suppression",
+    "deletionDesc": "Comment les dossiers sont supprimés",
+    "rootDirectory": "Répertoire Racine",
+    "rootDirectoryDesc": "Répertoire de départ pour les analyses",
+    "threshold": "Seuil",
+    "thresholdDesc": "Alerter lorsque les dépendances dépassent",
+    "minSize": "Taille Minimale",
+    "minSizeDesc": "Masquer les répertoires plus petits que",
+    "excludePaths": "Exclure les Chemins",
+    "excludePathsDesc": "Chemins séparés par des virgules à ignorer",
+    "sortBy": "Trier Par",
+    "sortByDesc": "Ordre des résultats",
+    "rescanInterval": "Intervalle de Réanalyse",
+    "rescanIntervalDesc": "Fréquence de réanalyse automatique",
+    "confirmBeforeDelete": "Demander avant de supprimer",
+    "confirmBeforeDeleteDesc": "Afficher la boîte de dialogue de confirmation",
+    "permanentDelete": "Ignorer la corbeille (définitif)",
+    "permanentDeleteDesc": "Ignorer la corbeille, supprimer définitivement",
+    "notifyOnThresholdExceeded": "Envoyer une notification si dépassé",
+    "notifyOnThresholdExceededDesc": "Notifier lorsque le seuil est dépassé",
+    "language": "Langue",
+    "languageDesc": "Langue de l'application",
+    "fontSize": "Taille de Police",
+    "fontSizeDesc": "Taille du texte et des éléments UI",
+    "startup": "Démarrage",
+    "startupDesc": "Comportement au démarrage du système",
+    "launchAtLogin": "Lancer à la connexion",
+    "close": "Fermer"
+  },
+  "intervals": {
+    "never": "Jamais",
+    "daily": "Quotidien",
+    "weekly": "Hebdomadaire",
+    "monthly": "Mensuel"
+  },
+  "menu": {
+    "copyPath": "Copier le Chemin",
+    "exploreFiles": "Explorer les Fichiers",
+    "rescan": "Réanalyser",
+    "rescanNow": "Analyser Maintenant",
+    "openInFinder": "Ouvrir dans le Finder",
+    "delete": "Supprimer",
+    "deleteDirectory": "Supprimer le Répertoire",
+    "largestFiles": "Fichiers les Plus Volumineux",
+    "noFilesFound": "Aucun fichier trouvé",
+    "failedToLoadFiles": "Échec du chargement des fichiers"
+  },
+  "dialogs": {
+    "cancel": "Annuler",
+    "confirm": "Confirmer",
+    "delete": "Supprimer",
+    "deleteDirectoryTitle": "Supprimer le Répertoire",
+    "deleteDirectoriesTitle": "Supprimer {{count}} Répertoires",
+    "deleteToTrashMessage": "Sera déplacé vers la Corbeille et peut être restauré. Ceci peut être modifié dans les Paramètres.",
+    "deletePermanentMessage": "Sera supprimé définitivement et ne peut pas être annulé. Ceci peut être modifié dans les Paramètres.",
+    "directoryWarningsTitle": "Avertissement de Répertoire",
+    "symlinkTitle": "Liens Symboliques Uniquement",
+    "symlinkMessage": "Contient uniquement des liens symboliques vers des packages stockés ailleurs. Aucun espace disque n'est réellement utilisé, mais la suppression nécessitera de réinstaller les dépendances par la suite.",
+    "icloudTitle": "Répertoire iCloud",
+    "icloudMessage": "Ce répertoire est stocké dans iCloud. Il sera supprimé de force (sans passer par la Corbeille). Pour une suppression plus sûre, faites un clic droit dans Finder, sélectionnez 'Télécharger maintenant', puis relancez l'analyse."
+  },
+  "status": {
+    "scanning": "analyse en cours",
+    "loading": "Chargement...",
+    "preparingScan": "Préparation de l'analyse",
+    "scannedDirectories": "{{count}} répertoires analysés",
+    "folder": "dossier",
+    "folders": "dossiers"
+  },
+  "time": {
+    "justNow": "à l'instant",
+    "unknown": "inconnu",
+    "lastModified": "Dernière modification {{date}}"
+  },
+  "update": {
+    "checking": "Vérification...",
+    "available": "Mettre à jour vers v{{version}}",
+    "downloadAndInstall": "Télécharger et Installer",
+    "downloading": "Téléchargement...",
+    "readyToInstall": "Redémarrage...",
+    "checkForUpdates": "Mises à jour",
+    "upToDateTitle": "Vérifier les mises à jour",
+    "upToDate": "Vous avez la dernière version (v{{version}})"
+  },
+  "search": {
+    "placeholder": "Rechercher",
+    "clear": "Effacer la recherche"
+  },
+  "license": {
+    "title": "Licence",
+    "hint": "Soutenez le développement continu",
+    "support": "Soutenez",
+    "supportDevelopment": "Soutenez le développement de deptox",
+    "supportDescription": "Si vous trouvez cette application utile, envisagez d'acheter une licence.",
+    "getLicense": "Obtenir une licence",
+    "enterKey": "Entrez la clé de licence",
+    "activate": "Activer",
+    "activating": "Activation...",
+    "activationError": "Vérification impossible",
+    "thanksForSupporting": "Merci de soutenir deptox !",
+    "remove": "Supprimer"
+  }
+}

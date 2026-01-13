@@ -1,0 +1,139 @@
+{
+  "app": {
+    "name": "deptox",
+    "description": "Reclaim disk space by finding and removing dependency directories",
+    "version": "Version {{version}}",
+    "viewOnGitHub": "GitHub"
+  },
+  "scan": {
+    "button": "Scan",
+    "scanning": "Scanning",
+    "scanFor": "Scan For",
+    "folderTypes": "Folder types to detect"
+  },
+  "delete": {
+    "button": "Delete ({{count}})",
+    "deleting": "Deleting",
+    "confirm": "Delete {{count}} {{type}}?",
+    "confirmMessage": "This will {{action}} {{size}} of data.",
+    "directory": "directory",
+    "directories": "directories",
+    "moveToTrash": "move to Trash",
+    "permanentDelete": "permanently delete"
+  },
+  "categories": {
+    "node": "Node (modules)",
+    "python": "Python (venv)",
+    "php": "PHP (composer)",
+    "ruby": "Ruby (bundler)",
+    "ios": "iOS (pods)",
+    "elixir": "Elixir (deps)",
+    "dart": "Dart (dart_tool)",
+    "go": "Go (pkg/mod)"
+  },
+  "settings": {
+    "title": "Settings",
+    "deletion": "Deletion",
+    "deletionDesc": "How folders are removed",
+    "rootDirectory": "Root Directory",
+    "rootDirectoryDesc": "Starting directory for scans",
+    "threshold": "Threshold",
+    "thresholdDesc": "Alert when dependencies exceed",
+    "minSize": "Minimum Size",
+    "minSizeDesc": "Hide directories smaller than",
+    "excludePaths": "Exclude Paths",
+    "excludePathsDesc": "Comma-separated paths to skip",
+    "sortBy": "Sort By",
+    "sortByDesc": "Order of results",
+    "rescanInterval": "Rescan Interval",
+    "rescanIntervalDesc": "Auto-rescan frequency",
+    "confirmBeforeDelete": "Ask before deleting",
+    "confirmBeforeDeleteDesc": "Show confirmation dialog",
+    "permanentDelete": "Skip trash (permanent)",
+    "permanentDeleteDesc": "Skip trash, delete permanently",
+    "notifyOnThresholdExceeded": "Send notification when exceeded",
+    "notifyOnThresholdExceededDesc": "Notify when threshold exceeded",
+    "language": "Language",
+    "languageDesc": "Application language",
+    "fontSize": "Font Size",
+    "fontSizeDesc": "Text and UI element size",
+    "startup": "Startup",
+    "startupDesc": "System startup behaviour",
+    "launchAtLogin": "Launch at login",
+    "close": "Close"
+  },
+  "intervals": {
+    "never": "Never",
+    "daily": "Daily",
+    "weekly": "Weekly",
+    "monthly": "Monthly"
+  },
+  "menu": {
+    "copyPath": "Copy Path",
+    "exploreFiles": "Explore Files",
+    "rescan": "Rescan",
+    "rescanNow": "Rescan Now",
+    "openInFinder": "Open in Finder",
+    "delete": "Delete",
+    "deleteDirectory": "Delete Directory",
+    "largestFiles": "Largest Files",
+    "noFilesFound": "No files found",
+    "failedToLoadFiles": "Failed to load files"
+  },
+  "dialogs": {
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "delete": "Delete",
+    "deleteDirectoryTitle": "Delete Directory",
+    "deleteDirectoriesTitle": "Delete {{count}} Directories",
+    "deleteToTrashMessage": "Will be moved to Trash and can be restored. This can be changed in settings.",
+    "deletePermanentMessage": "Will be permanently deleted and cannot be undone. This can be changed in settings.",
+    "directoryWarningsTitle": "Directory Warning",
+    "symlinkTitle": "Symlinks Only",
+    "symlinkMessage": "Contains only symbolic links to packages stored elsewhere. No disk space is actually used, but deletion will require reinstalling dependencies afterwards.",
+    "icloudTitle": "iCloud Directory",
+    "icloudMessage": "This directory is stored in iCloud. It will be force-deleted (without moving to Trash). For safer deletion, right-click in Finder, select 'Download Now', then rescan."
+  },
+  "status": {
+    "scanning": "scanning",
+    "loading": "Loading...",
+    "preparingScan": "Preparing scan",
+    "scannedDirectories": "Scanned {{count}} directories",
+    "folder": "folder",
+    "folders": "folders"
+  },
+  "time": {
+    "justNow": "just now",
+    "unknown": "unknown",
+    "lastModified": "Last modified {{date}}"
+  },
+  "update": {
+    "checking": "Checking...",
+    "available": "Update to v{{version}}",
+    "downloadAndInstall": "Download & Install",
+    "downloading": "Downloading...",
+    "readyToInstall": "Restarting...",
+    "checkForUpdates": "Updates",
+    "upToDateTitle": "Check Updates",
+    "upToDate": "You're on the latest version (v{{version}})"
+  },
+  "search": {
+    "placeholder": "Search",
+    "clear": "Clear search"
+  },
+  "license": {
+    "title": "License",
+    "hint": "Support ongoing development",
+    "supportPrefix": "Support",
+    "supportSuffix": "(pay what you want)",
+    "supportDevelopment": "Support deptox development",
+    "supportDescription": "If you find this app useful, consider purchasing a license.",
+    "getLicense": "Get License",
+    "enterKey": "Enter Key",
+    "activate": "Activate",
+    "activating": "Activating...",
+    "activationError": "Unable to Verify",
+    "thanksForSupporting": "Thanks for supporting deptox!",
+    "remove": "Remove"
+  }
+}
