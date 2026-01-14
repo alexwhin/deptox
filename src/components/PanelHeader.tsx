@@ -1,4 +1,5 @@
 import { Settings, X, ChevronLeft } from "lucide-react";
+import { getCurrentWindow } from "@tauri-apps/api/window";
 import { Icon, IconSize } from "./Icon";
 import { cn } from "../utilities/cn";
 
@@ -36,9 +37,19 @@ export function PanelHeader({
 
   const hasChildren = children !== undefined && children !== null;
 
+  const handleMouseDown = (event: React.MouseEvent): void => {
+    if (event.button !== 0) {
+      return;
+    }
+    getCurrentWindow().startDragging();
+  };
+
   return (
     <div className="shrink-0 p-3 bg-surface-raised-light dark:bg-surface-raised/50">
-      <div className={cn("flex items-center justify-between", hasChildren && "mb-2")}>
+      <div
+        onMouseDown={handleMouseDown}
+        className={cn("flex items-center justify-between cursor-grab active:cursor-grabbing", hasChildren && "mb-2")}
+      >
         <img
           src="/logo-mark.svg"
           alt="deptox"

@@ -23,6 +23,8 @@ Every project you clone or experiment with leaves behind dependency folders. Tha
 - **Threshold alerts** when space usage exceeds your limit
 - **Background monitoring** with periodic scans
 
+![deptox banner](public/deptox.gif)
+
 ## Installation
 
 ### Download
