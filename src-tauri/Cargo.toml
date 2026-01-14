@@ -1,6 +1,6 @@
 [package]
 name = "deptox"
-version = "0.1.11"
+version = "0.1.12"
 description = "A macOS menubar app to manage and clean up dependency directories"
 authors = ["Alex Whinfield"]
 license = "MIT"

@@ -1,7 +1,7 @@
 {
   "name": "deptox",
   "private": true,
-  "version": "0.1.11",
+  "version": "0.1.12",
   "description": "Reclaim disk space by finding and removing dependency directories",
   "author": "Alex Whinfield",
   "license": "MIT",
