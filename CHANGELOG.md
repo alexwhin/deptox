@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
+## <small>0.1.13 (2026-01-14)</small>
+
+* chore: update cargo dependencies and lock file ([42dcd0b](https://github.com/alexwhin/deptox/commit/42dcd0b))
+* feat: add demo gif to readme and enable window dragging functionality ([09e7d91](https://github.com/alexwhin/deptox/commit/09e7d91))
+
 ## <small>0.1.12 (2026-01-14)</small>
 
 * chore: remove version_management.md documentation file ([36f82ba](https://github.com/alexwhin/deptox/commit/36f82ba))
